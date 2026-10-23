@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centro Cultural VillaNueva</title>
+<meta name="description" content="Proyecto del Centro Cultural Multifuncional de VillaNueva: equipo, planificación, documentación y riesgos.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ECEFEF; --surface:#F8FAFA; --ink:#14282B; --muted:#4B6063;
+  --line:#B9C5C6; --accent:#0F766E; --accent-ink:#0A524D; --mark:#F2C14E;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Public Sans","Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0F1B1D; --surface:#162629; --ink:#E6EEEE; --muted:#9DB2B4; --line:#2F4649; --accent:#5CC9BC; --accent-ink:#8EE0D5;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:var(--accent-ink);text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+
+/* Cabecera */
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.5rem;flex-wrap:wrap}
+.brand{font:700 1.1rem/1 var(--display);font-stretch:85%;letter-spacing:.01em;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{display:block;padding:.45rem .7rem;border-radius:.35rem;color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover,nav a[aria-current="true"]{background:var(--ink);color:var(--paper)}
+
+/* Portada */
+.hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--line);background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 3rem,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/3rem 100%;
+  background-blend-mode:normal}
+.hero .wrap{position:relative}
+.hero-card{background:var(--paper);display:inline-block;padding:0 1rem 0 0;max-width:46rem}
+h1{font:800 clamp(2.6rem,8vw,5.5rem)/.95 var(--display);font-stretch:78%;letter-spacing:-.01em;margin:0 0 1.25rem}
+.lema{font:italic 1.25rem/1.5 Georgia,"Times New Roman",serif;color:var(--muted);margin:0;max-width:34rem;border-left:4px solid var(--mark);padding-left:1rem}
+
+/* Cajetín */
+.cajetin{margin-top:2.5rem;background:var(--surface);border:2px solid var(--ink);display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))}
+.cajetin div{padding:.8rem 1rem;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:0 -1px -1px 0}
+.cajetin dt{font-size:.8rem;color:var(--muted);margin:0}
+.cajetin dd{margin:.1rem 0 0;font:700 1.35rem/1.2 var(--display);font-stretch:85%}
+.cajetin{overflow:hidden}
+
+/* Secciones */
+section{padding:4rem 0;border-bottom:1px solid var(--line)}
+h2{font:800 clamp(1.8rem,4vw,2.6rem)/1.05 var(--display);font-stretch:80%;margin:0 0 1.5rem}
+h3{font:700 1.2rem/1.3 var(--display);font-stretch:90%;margin:0 0 .5rem}
+.lead{max-width:42rem}
+.cols{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));align-items:start}
+.programa{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.programa li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line)}
+.programa strong{font-weight:600}
+.programa span{color:var(--muted);text-align:right}
+
+/* Equipo */
+.equipo{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.persona{background:var(--surface);border:1px solid var(--line);padding:1.5rem}
+.avatar{width:4rem;height:4rem;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 1.4rem var(--display);margin-bottom:1rem}
+.persona p{margin:0;color:var(--muted)}
+
+/* Botones */
+.btn{display:inline-block;padding:.7rem 1.1rem;background:var(--accent);color:#fff;font-weight:600;text-decoration:none;border-radius:.35rem}
+.btn:hover{background:var(--accent-ink)}
+.btn.sec{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.sec:hover{background:var(--ink);color:var(--paper)}
+.acciones{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
+
+/* Documentos y riesgos */
+.docs{list-style:none;padding:0;margin:1.25rem 0 0;display:grid;gap:.5rem}
+.docs li{background:var(--surface);border:1px solid var(--line);padding:.75rem 1rem;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
+.docs small{color:var(--muted)}
+.graficos{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));margin-top:1.5rem}
+.graficos figure{margin:0;background:var(--surface);border:1px solid var(--line);padding:1rem}
+.graficos figcaption{font-weight:600;margin-bottom:.5rem}
+.graficos iframe{width:100%;height:20rem;border:0;background:#fff}
+.aviso{background:var(--surface);border-left:4px solid var(--mark);padding:1rem 1.25rem;max-width:42rem}
+
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+@media (max-width:40rem){header.top .wrap{padding-top:.5rem;padding-bottom:.5rem}.hero{padding-top:3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Centro Cultural VillaNueva</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#planificacion">Planificación</a></li>
+        <li><a href="#documentacion">Documentación</a></li>
+        <li><a href="#riesgos">Riesgos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-card">
+      <h1>Centro Cultural VillaNueva</h1>
+      <p class="lema">«El hombre no puede descubrir nuevos océanos a menos que tenga el coraje de perder de vista la costa»</p>
+    </div>
+    <dl class="cajetin" aria-label="Datos clave del proyecto">
+      <div><dt>Superficie</dt><dd>4.500 m²</dd></div>
+      <div><dt>Presupuesto máximo</dt><dd>5.000.000 €</dd></div>
+      <div><dt>Plazo de ejecución</dt><dd>18 meses desde el inicio de obra</dd></div>
+      <div><dt>Metodología</dt><dd>BIM</dd></div>
+      <div><dt>Certificación energética</dt><dd>Clase A</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section aria-labelledby="proyecto">
+  <div class="wrap cols">
+    <div>
+      <h2 id="proyecto">El proyecto</h2>
+      <p class="lead">El Ayuntamiento de VillaNueva ha detectado la necesidad de dotar al municipio de un Centro Cultural Multifuncional que acoja actividades culturales, educativas y sociales.</p>
+      <p class="lead">Será un espacio de referencia para la comunidad, con instalaciones modernas, accesibles y sostenibles.</p>
+      <p class="lead">El edificio se diseñará y ejecutará con metodología BIM (modelado de información de la construcción), que permite gestionar la información de forma más eficiente durante todo el ciclo de vida del proyecto y en su posterior operación.</p>
+    </div>
+    <div>
+      <h3>Qué incluye el edificio</h3>
+      <ul class="programa">
+        <li><strong>Auditorio principal</strong><span>500 personas</span></li>
+        <li><strong>Aulas polivalentes</strong><span>5, para talleres y formación</span></li>
+        <li><strong>Biblioteca</strong><span>sala de lectura para 200 usuarios</span></li>
+        <li><strong>Sala de exposiciones</strong><span>800 m²</span></li>
+        <li><strong>Zonas administrativas y de servicios</strong><span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="equipo" aria-labelledby="h-equipo">
+  <div class="wrap">
+    <h2 id="h-equipo">Equipo</h2>
+    <div class="equipo">
+      <article class="persona">
+        <div class="avatar" aria-hidden="true">JC</div>
+        <h3>José María Conejero</h3>
+        <p>Director BIM</p>
+      </article>
+      <article class="persona">
+        <div class="avatar" aria-hidden="true">AP</div>
+        <h3>Álvaro Prieto</h3>
+        <p>Director de ejecución</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="planificacion" aria-labelledby="h-plan">
+  <div class="wrap">
+    <h2 id="h-plan">Planificación</h2>
+    <p class="lead">El cronograma del proyecto se mantiene en un diagrama de Gantt compartido.</p>
+    <div class="acciones">
+      <a class="btn" href="https://app.instagantt.com/shared/s/NbAPKbbxHrIXv9ndJ3x9/latest" target="_blank" rel="noopener">Abrir el diagrama de Gantt</a>
+    </div>
+  </div>
+</section>
+
+<section id="documentacion" aria-labelledby="h-doc">
+  <div class="wrap">
+    <h2 id="h-doc">Documentación</h2>
+    <p class="lead">Material de la sesión 01 en la carpeta compartida de Drive.</p>
+    <ul class="docs">
+      <li>S1_Trabajo_colaborativo_e_inicio.pptx <small>Presentación</small></li>
+      <li>Ejercicio 1_ActaConstitución.docx <small>Acta de constitución</small></li>
+    </ul>
+    <div class="acciones">
+      <a class="btn" href="https://docs.google.com/folderview?id=1ekCAiIcyhs1Rt5YRLBV_GgI6ND4GjNN_" target="_blank" rel="noopener">Abrir carpeta en Drive</a>
+    </div>
+  </div>
+</section>
+
+<section id="riesgos" aria-labelledby="h-riesgos">
+  <div class="wrap">
+    <h2 id="h-riesgos">Riesgos</h2>
+    <p class="lead">Registro de riesgos actualizado tras los cambios de la sesión 3 y resultados de la encuesta inicial al equipo.</p>
+    <div class="graficos">
+      <figure>
+        <figcaption>Nivel de uso y conocimiento de herramientas de gestión de proyectos</figcaption>
+        <iframe loading="lazy" title="Gráfico: nivel de uso y conocimiento de herramientas de gestión de proyectos" src="https://docs.google.com/spreadsheets/d/e/2CAIWO3ekPSEFpMap-7g1LNSrEgjrveM1m27lzARgya13qZBW-vtwFDsrMTMb5n1S7zar4w9CCQ_es503uqg/gviz/chartiframe?oid=403269413&amp;resourcekey"></iframe>
+      </figure>
+      <figure>
+        <figcaption>Conocimientos y experiencia básica en gestión de proyectos</figcaption>
+        <iframe loading="lazy" title="Gráfico: conocimientos y experiencia básica en gestión de proyectos" src="https://docs.google.com/spreadsheets/d/e/2CAIWO3ekPSEFpMap-7g1LNSrEgjrveM1m27lzARgya13qZBW-vtwFDsrMTMb5n1S7zar4w9CCQ_es503uqg/gviz/chartiframe?oid=1111720971&amp;resourcekey"></iframe>
+      </figure>
+    </div>
+    <div class="acciones">
+      <a class="btn sec" href="https://docs.google.com/forms/d/e/1FAIpQLSfr-dlmLuIPtYuJxOhxQmPJ5VmyhD-hCHJ82eAypXW7-TJo7w/viewform" target="_blank" rel="noopener">Responder el cuestionario de conocimientos</a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" aria-labelledby="h-contacto">
+  <div class="wrap">
+    <h2 id="h-contacto">Contacto</h2>
+    <p class="aviso">La página de contacto original está vacía. Añade aquí el correo, teléfono o formulario que quieras publicar: busca el comentario <code>CONTACTO</code> en <code>index.html</code>.</p>
+    <!-- CONTACTO: sustituye el aviso anterior por tus datos, por ejemplo:
+    <p><a href="mailto:contacto@ejemplo.es">contacto@ejemplo.es</a></p> -->
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Copyright: Perretta Arquitectura</span>
+    <span><a href="https://www.perrettaarquitectura.com/" rel="noopener">Sitio web</a> · <a href="https://www.instagram.com/perrettaarquitectura/" rel="noopener">Instagram</a></span>
+  </div>
+</footer>
+
+<script>
+// Marca en el menú la sección visible
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting&&map[e.target.id]){
+        links.forEach(function(a){a.removeAttribute('aria-current')});
+        map[e.target.id].setAttribute('aria-current','true');
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+})();
+</script>
+</body>
+</html>
